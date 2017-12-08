@@ -40,7 +40,8 @@ sub Run {
     my $Title    = $LayoutObject->{LanguageObject}->Translate("Copy Generic Agent");
 
     ${ $Param{Data} } =~ s{
-        <a \s (class="[^"]+"\s+)? href=".*? Profile=([^;]+); .*? > \s+
+        <a \s (?:class="[^"]+"\s+)? href=".*? Profile=([^;"]+) [^>]+ > \s+
+            (?:[\w\s]+)?
             <i \s class="fa \s+ fa-trash-o" .*?
         </a>\K
     }{
